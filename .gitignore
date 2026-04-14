@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+venv/
+.venv/
+
+# Output (generated at runtime)
+movie_101/
+
+# VS Code
+.vscode/
