@@ -1,6 +1,6 @@
 from enum import Enum
 
-class PipelineState:
+class PipelineState(Enum):
     IDLE = "idle"
     INGESTING = "ingesting"
     ANALYSING = "analysing"
