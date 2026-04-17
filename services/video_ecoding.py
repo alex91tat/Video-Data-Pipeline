@@ -30,6 +30,7 @@ class VideoEncodingService(BaseService):
                 "ffmpeg", "-i", file_path,
                 "-vf", f"scale={resolution}",
                 "-c:v", "libx264",
+                "-preset", "ultrafast",
                 "-c:a", "aac",
                 "-y",
                 output_file
@@ -49,6 +50,7 @@ class VideoEncodingService(BaseService):
                 "ffmpeg", "-i", file_path,
                 "-vf", f"scale={resolution}",
                 "-c:v", "libvpx-vp9",
+                "-deadline", "realtime",
                 "-c:a", "libopus",
                 "-y",
                 output_file
@@ -68,6 +70,7 @@ class VideoEncodingService(BaseService):
                 "ffmpeg", "-i", file_path,
                 "-vf", f"scale={resolution}",
                 "-c:v", "libx265",
+                "-preset", "ultrafast",
                 "-c:a", "aac",
                 "-y",
                 output_file
