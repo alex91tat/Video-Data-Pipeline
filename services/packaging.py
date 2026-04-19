@@ -13,6 +13,16 @@ class PackagingService(BaseService):
         print("[PackagingService] DRM encryption applied (stub).")
 
     def _build_manifest(self, output_path: str, analysis: dict, complexity: dict, flagged_scenes: dict) -> None:
+        scene_analysis = {
+        "complexity": complexity,
+        "scenes": analysis.get("scenes", []),
+        }
+
+        scene_analysis_path = os.path.join(output_path, "metadata", "scene_analysis.json")
+        with open(scene_analysis_path, "w") as f:
+            json.dump(scene_analysis, f, indent=4)
+        print(f"[PackagingService] Scene analysis saved: {scene_analysis_path}")
+        
         manifest = {
             "version": "1.0",
             "analysis": analysis,
