@@ -4,10 +4,9 @@ import json
 import os
 
 class ComplexityAnalysisService(BaseService):
-    def run(self, file_path: str, output_path: str) -> dict:
+    def run(self, file_path: str) -> dict:
         print("[ComplexityAnalysisService] Analysing scene complexity...")
         result = self._run_ffprobe(file_path)
-        self._save_scene_analysis(result, output_path)
         print("[ComplexityAnalysisService] Complexity analysis done.")
         return result
 
