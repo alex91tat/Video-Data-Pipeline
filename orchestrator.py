@@ -44,11 +44,10 @@ class Orchestrator:
             IngestService().run(self.file_path)
 
             # phase 2 - analysis
-            # phase 2 - analysis
             self._transition(PipelineState.ANALYSING)
             self._create_output_folders()
-            analysis = AnalysisService().run(self.file_path)
-            complexity = ComplexityAnalysisService().run(self.file_path, self.output_path)
+            complexity = ComplexityAnalysisService().run(self.file_path)
+            analysis = AnalysisService().run(self.file_path, complexity["duration"])
 
             # phase 3 - parallel processing
             self._transition(PipelineState.PROCESSING)
